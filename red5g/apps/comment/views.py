@@ -3,6 +3,7 @@ from rest_framework import mixins, viewsets
 
 from apps.comment.models import Comment
 from apps.comment.serializer import commentSerializer
+
 # Create your views here.
 
 class commentView(mixins.CreateModelMixin,

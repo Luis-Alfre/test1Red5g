@@ -1,4 +1,6 @@
+from pyexpat import model
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 class User(models.Model):
     name =  models.CharField(max_length=70)
@@ -10,3 +12,9 @@ class User(models.Model):
     
     
     
+# class User(AbstractUser):
+#     email = models.EmailField(
+#         max_length=150, unique=True)
+#     REQUIRED_FIELDS = ['username', 'password']  # new
+
+   

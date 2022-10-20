@@ -7,6 +7,7 @@ from apps.user.serializer import UserSerializer
 
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.authtoken.models import Token
 
 
 class UserView(mixins.CreateModelMixin,
@@ -21,8 +22,8 @@ class UserView(mixins.CreateModelMixin,
         mail = request.data['mail']
         user = User.objects.filter(mail = mail, password = password)
         if user:
+            #Token.objects.get_or_create(user=user)
             return Response(UserSerializer(user, many=True).data)
-        
         return Response(
             status=status.HTTP_404_NOT_FOUND)
         
